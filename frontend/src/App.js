@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Helmet } from "react-helmet";
+import Login from "./pages/Login.js";
+import AdminLogin from "./pages/AdminLogin.js";
+import Administrador from "./pages/Administrador.js";
 
-function App() {
-  return (
+function App(){
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<Router>
+    <Helmet>
+      <title>Sistema de proyectos</title>
+    </Helmet>
+
+    <Routes>
+      <Route path="/" element={<Login/>} />
+      <Route path="/Administrador" element={<Administrador />} />
+      <Route path="/AdminLogin" element={<AdminLogin />} />
+    </Routes>
+    
+
+</Router>
+
     </div>
-  );
+  )
 }
 
 export default App;
